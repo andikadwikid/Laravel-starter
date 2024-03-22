@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ $title ?? 'Blog' }} | Prefix</title>
+    <title>{{ $title }} | Prefix</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 </head>
 
@@ -15,7 +15,7 @@
     ny ke file .blade nya --}}
     <x-navbar></x-navbar>
     {{-- End --}}
-    @yield('content')
+    {{ $slot }}
     {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
 </body>
 
