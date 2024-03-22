@@ -10,7 +10,11 @@
 </head>
 
 <body>
-    @include('layouts.navbar')
+    {{-- keuntungan saat kita menggunakan component daripada @include adalah kita bisa mempassing data dari class
+    component
+    ny ke file .blade nya --}}
+    <x-navbar></x-navbar>
+    {{-- End --}}
     @yield('content')
     {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
 </body>

@@ -18,6 +18,7 @@ ini adalah children
 {{-- End --}}
 
 {{-- Penulisan singkat component --}}
+{{-- Ini disebut anonymous component --}}
 {{-- Persyaratannya adalah nama folder nya "components" --}}
 <x-alert>
     <x-slot name="title">
