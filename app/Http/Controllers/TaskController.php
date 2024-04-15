@@ -20,4 +20,19 @@ class TaskController extends Controller
         ]);
         return back();
     }
+
+    public function edit($id)
+    {
+        $task = DB::table('tasks')->whereRaw('id = ?', [$id])->first();
+        // dd($task);
+        return view('tasks.edit', ['task' => $task]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        DB::table('tasks')->whereRaw('id = ?', [$id])->update([
+            'list' => $request->list
+        ]);
+        return redirect('/tasks');
+    }
 }
