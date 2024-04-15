@@ -7,7 +7,7 @@
         </style>
     @endslot
     <h1>Profile</h1>
-    <p>My name is {{ $name ?? 'Guest' }}</p>
+    <p>My name is {{ $username ?? 'Guest' }}</p>
     Lorem ipsum dolor, sit <strong style="color: red">amet</strong> consectetur adipisicing elit. A nemo odit commodi,
     cum
     amet, fuga, sint architecto
