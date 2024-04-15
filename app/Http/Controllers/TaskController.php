@@ -35,4 +35,10 @@ class TaskController extends Controller
         ]);
         return redirect('/tasks');
     }
+
+    public function destroy($id)
+    {
+        DB::table('tasks')->whereRaw('id = ?', [$id])->delete();
+        return back();
+    }
 }
