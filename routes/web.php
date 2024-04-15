@@ -19,4 +19,7 @@ Route::get('/', function () {
 
 Route::view('/contact', 'contact');
 Route::view('/about', 'about');
-Route::view('/profile', 'profile');
+// Route::view('/profile', 'profile');
+Route::get('/profile/{name}', function ($name) {
+    return view('profile', ['name' => $name]);
+});
