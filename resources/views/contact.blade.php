@@ -4,4 +4,8 @@
     cum
     amet, fuga, sint architecto
     recusandae id esse similique reprehenderit eveniet libero rerum soluta! Autem, debitis in? Adipisci?
+    <form action="/contact" method="POST">
+        @csrf
+        <button type="submit">Send</button>
+    </form>
 </x-app-layout>
