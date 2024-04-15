@@ -1,9 +1,15 @@
 <x-app-layout title="Tasks">
     <h1>Tasks</h1>
 
-    <ol>
+    <form action="/tasks" method="post">
+        @csrf
+        <input type="text" name="list" id="" placeholder="The name of task">
+        <button type="submit">Add</button>
+    </form>
+
+    <ul style="list-style-type: none">
         @foreach ($tasks as $index => $task)
-            <li>{{ $task->list }}</li>
+            <li>{{ $index + 1 }} - {{ $task->list }}</li>
         @endforeach
-    </ol>
+    </ul>
 </x-app-layout>
