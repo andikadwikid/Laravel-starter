@@ -3,16 +3,15 @@
 
     {{-- Penulisan component pada blade --}}
     @component('components.alert')
-    @slot('title')
-    Header Component with <strong>strong</strong> tag
-    @endslot
+        @slot('title')
+            Header Component with <strong>strong</strong> tag
+        @endslot
 
-    ini adalah children
+        ini adalah children
 
-    @slot('footer')
-    <p>Footer</p>
-    @endslot
-
+        @slot('footer')
+            <p>Footer</p>
+        @endslot
     @endcomponent
     {{-- End --}}
 
