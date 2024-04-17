@@ -15,11 +15,13 @@ class UsersSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' => 'Andika Dwiki',
-            'email' => 'andikadwiki@pm.me',
-            'password' => Hash::make('password'),
-            'email_verified_at' => now(),
-        ]);
+        User::create(
+            [
+                'name' => 'Andika Dwiki',
+                'email' => 'andikadwiki@pm.me',
+                'password' => Hash::make('password'),
+                'email_verified_at' => now(),
+            ]
+        );
     }
 }
