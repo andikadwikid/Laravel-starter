@@ -7,9 +7,9 @@
                 <div class="card">
                     <div class="card-header">Create New Task</div>
                     <div class="card-body">
-                        <form action="/tasks" method="post" class="d-flex">
+                        <form action="{{ route('tasks.store') }}" method="post" class="d-flex gap-2">
                             @csrf
-                            <input type="text" class="form-control me-2" name="list" id=""
+                            <input type="text" class="form-control" name="list" id=""
                                 placeholder="The name of task">
                             <button class="btn btn-primary" type="submit">Add</button>
                         </form>
@@ -23,8 +23,8 @@
                 <li class="list-group-item d-flex align-items-center justify-content-between">{{ $index + 1 }} -
                     {{ $task->list }}
                     <div class="d-flex gap-2">
-                        <a class="btn btn-primary" href="/tasks/{{ $task->id }}/edit">Edit</a>
-                        <form action="/tasks/{{ $task->id }}" method="post" style="display: inline">
+                        <a class="btn btn-primary" href="{{ route('tasks.edit', $task->id) }}">Edit</a>
+                        <form action="{{ route('tasks.destroy', $task->id) }}" method="post" style="display: inline">
                             @method('delete')
                             @csrf
                             <button class="btn btn-danger" type="submit">Delete</button>
