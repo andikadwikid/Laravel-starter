@@ -16,7 +16,7 @@ class RegistrationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'email' => 'required|email',
+            'email' => 'required|email|unique:users,email',
             'name' => 'required|string|min:3',
             'password' => 'required|min:8|confirmed'
         ]);
@@ -26,5 +26,7 @@ class RegistrationController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
+
+        return redirect('/');
     }
 }
