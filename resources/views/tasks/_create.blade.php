@@ -8,14 +8,7 @@
     <div class="card-body">
         <form action="{{ route('tasks.store') }}" method="post" class="d-flex justify-content-between gap-2">
             @csrf
-            <div class="flex-fill">
-                <input type="text" class="form-control @error('list') is-invalid @enderror" name="list"
-                    id="" placeholder="The name of task">
-                @error('list')
-                    <span class="invalid-feedback">{{ $message }}</span>
-                @enderror
-            </div>
-            <button class="btn btn-primary align-self-start" type="submit">Add</button>
+            @include('tasks._form')
         </form>
     </div>
 </div>

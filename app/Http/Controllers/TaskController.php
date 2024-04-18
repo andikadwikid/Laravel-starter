@@ -11,7 +11,11 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::orderBy('id', 'desc')->get();
-        return view('tasks.index', ['tasks' => $tasks]);
+        return view('tasks.index', [
+            'submit' => 'Create',
+            'task' => new Task(),
+            'tasks' => $tasks
+        ]);
     }
 
     public function store(TaskRequest $request)
@@ -24,7 +28,10 @@ class TaskController extends Controller
     {
         $task = Task::findOrFail($id);
         // dd($task);
-        return view('tasks.edit', ['task' => $task]);
+        return view('tasks.edit', [
+            'submit' => 'Update',
+            'task' => $task
+        ]);
     }
 
     public function update(TaskRequest $request, $id)
