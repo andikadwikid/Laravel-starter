@@ -24,7 +24,7 @@ Route::get('/', HomeController::class);
 
 Route::get('/profile/{identifier}', ProfileInformationController::class);
 
-Route::resource('/tasks', TaskController::class);
+Route::resource('/tasks', TaskController::class)->middleware('auth');
 
 Route::get('/contact', [ContactController::class, 'create']);
 Route::post('/contact', [ContactController::class, 'store']);
@@ -32,8 +32,11 @@ Route::post('/contact', [ContactController::class, 'store']);
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/users/{user}', [UserController::class, 'show'])->name('users.show');
 
-Route::get('/register', [RegistrationController::class, 'create'])->name('register');
-Route::post('/register', [RegistrationController::class, 'store'])->name('register');
+Route::middleware('guest')->group(function () {
 
-Route::get('/login', [LoginController::class, 'create'])->name('login');
-Route::post('/login', [LoginController::class, 'store'])->name('login');
+    Route::get('/register', [RegistrationController::class, 'create'])->name('register');
+    Route::post('/register', [RegistrationController::class, 'store'])->name('register');
+
+    Route::get('/login', [LoginController::class, 'create'])->name('login');
+    Route::post('/login', [LoginController::class, 'store'])->name('login');
+});
